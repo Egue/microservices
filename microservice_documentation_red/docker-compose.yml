@@ -10,12 +10,12 @@ services:
       - "8091:8091"
     environment:
       QUARKUS_HTTP_PORT: 8091
-      MONGODB_URI: mongodb://root:mongo12FbKill@host.docker.internal:27017
+      MONGODB_URI: mongodb://root:mongo12FbKill@10.112.109.3:27017
       MONGODB_DATABASE: inconnection
       QUARKUS_HTTP_HOST: 0.0.0.0
     restart: unless-stopped
     healthcheck:
-      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:8091/q/health/ready"]
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://10.112.109.3:8091/q/health/ready"]
       interval: 30s
       timeout: 10s
       retries: 3
